@@ -23,21 +23,39 @@ namespace Tranzap
         {
             if (gotServer && Client.connected())
             {
+                this.Enabled = false;
                 if (Client.logIn(usernameTextBox.Text, passwordTextBox.Text))
-                { }//TODO
+                { this.Close(); }
+                else
+                { failLabel.Visible = true; }
+                this.Enabled = true;
             }
-            if (!gotServer && Client.connect(addressTextBox.Text))
+            if (!gotServer && addressTextBox.Text != "")
             {
-                addressLabel.Visible = false;
-                addressTextBox.Visible = false;
+                if (Client.connect(addressTextBox.Text))
+                {
+                    addressLabel.Visible = false;
+                    addressTextBox.Visible = false;
 
-                usernameLabel.Visible = true;
-                usernameTextBox.Visible = true;
-                passwordLabel.Visible = true;
-                passwordTextBox.Visible = true;
+                    usernameLabel.Visible = true;
+                    usernameTextBox.Visible = true;
+                    passwordLabel.Visible = true;
+                    passwordTextBox.Visible = true;
+                    wrongAddressLabel.Visible = false;
 
-                gotServer = true;
+                    sendButton.Text = "Log In";
+
+                    gotServer = true;
+                }
+                else
+                { wrongAddressLabel.Visible = true; }
             }
+        }
+
+        private void GetServer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            { sendButton_Click(sendButton, new EventArgs());}
         }
     }
 }

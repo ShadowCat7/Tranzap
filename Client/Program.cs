@@ -16,6 +16,8 @@ namespace Tranzap
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GetServer());
+            if (Client.connected() && Client.getLoggedIn())
+            { Application.Run(new Form1()); }
         }
     }
 }

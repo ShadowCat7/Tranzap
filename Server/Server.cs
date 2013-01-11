@@ -37,12 +37,12 @@ namespace TranzapServer
 
             users = new List<Communicator>();
 
-            addUserThread = new Thread(new ThreadStart(addUsers));
+            addUserThread = new Thread(new ThreadStart(readFromUsers));
             addUserThread.IsBackground = true;
             addUserThread.Start();
         }
 
-        private void addUsers()
+        private void readFromUsers()
         {
             while (true)
             {
@@ -54,19 +54,34 @@ namespace TranzapServer
 
                     while (!pendingUser.getAuthenticated() && pendingUser.connected())
                     {
+                        List<string> acceptance = new List<string>();
+                        pendingUser.receiveUserDetails();
                         if (Authenticator.checkUser(pendingUser.getUsername(), pendingUser.getPassword()))
                         {
                             pendingUser.setAuthenticated(true);
-                            List<string> acceptance = new List<string>();
+                            pendingUser.receiveMessage.Start();
                             acceptance.Add("log in accepted");
                             pendingUser.sendMessage(acceptance);
                         }
                         else
-                        { pendingUser.receiveUserDetails(); }
+                        {
+                            acceptance.Add("log in failed");
+                            pendingUser.sendMessage(acceptance);
+                            pendingUser.receiveUserDetails();
+                        }
                     }
 
                     if (pendingUser.connected())
                     { users.Add(pendingUser); }
+                }
+
+                for (int i = 0; i < users.Count; i++)
+                {
+                    if (!users[i].connected())
+                    {
+                        users[i].receiveMessage.Abort();
+                        users.RemoveAt(i);
+                    }
                 }
             }
         }

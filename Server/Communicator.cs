@@ -48,19 +48,20 @@ namespace TranzapServer
             username = "";
             password = "";
 
-            receiveMessage = new Thread(new ThreadStart(getMessage));
+            receiveMessage = new Thread(new ThreadStart(readMessage));
             receiveMessage.IsBackground = true;
         }
         /// <summary>
         /// Called to receive a message. Loops forever.
         /// </summary>
-        private void getMessage()
+        private void readMessage()
         {
             while (true)
             {
+                List<string> message = new List<string>();
                 try
                 {
-                    //TODO
+                    message.Add(reader.ReadLine());
                     if (reader.EndOfStream)
                     {
                         client.Close();
@@ -71,8 +72,27 @@ namespace TranzapServer
                 { client.Close(); }
                 catch (ObjectDisposedException)
                 { reader.Dispose(); }
+
+                if (message.Count > 0)
+                {
+                    if (message[0] == "download")
+                    {
+                        message.Add(reader.ReadLine());
+                        if (FileManager.fileExists(message[1]))
+                        {
+                            List<string> download = new List<string>();
+                            download.Add("download incoming");
+                            download.Add(message[1]);
+                            List<string> tempFile = FileManager.getFile(message[1]);
+                            download.Add((tempFile.Count).ToString());
+                            download.AddRange(tempFile);
+                            sendMessage(download);
+                        }
+                    }
+                }
             }
         }
+
         public void sendMessage(List<string> message)
         {
             for (int i = 0; i < message.Count; i++)

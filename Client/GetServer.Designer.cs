@@ -35,6 +35,9 @@
             this.sendButton = new System.Windows.Forms.Button();
             this.addressLabel = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.failLabel = new System.Windows.Forms.Label();
+            this.wrongAddressLabel = new System.Windows.Forms.Label();
+            this.newUserButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameLabel
@@ -105,12 +108,46 @@
             this.addressTextBox.Size = new System.Drawing.Size(260, 20);
             this.addressTextBox.TabIndex = 6;
             // 
+            // failLabel
+            // 
+            this.failLabel.AutoSize = true;
+            this.failLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.failLabel.Location = new System.Drawing.Point(118, 201);
+            this.failLabel.Name = "failLabel";
+            this.failLabel.Size = new System.Drawing.Size(67, 13);
+            this.failLabel.TabIndex = 7;
+            this.failLabel.Text = "Log in failed.";
+            this.failLabel.Visible = false;
+            // 
+            // wrongAddressLabel
+            // 
+            this.wrongAddressLabel.AutoSize = true;
+            this.wrongAddressLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.wrongAddressLabel.Location = new System.Drawing.Point(72, 200);
+            this.wrongAddressLabel.Name = "wrongAddressLabel";
+            this.wrongAddressLabel.Size = new System.Drawing.Size(159, 13);
+            this.wrongAddressLabel.TabIndex = 8;
+            this.wrongAddressLabel.Text = "No server found at that address.";
+            this.wrongAddressLabel.Visible = false;
+            // 
+            // newUserButton
+            // 
+            this.newUserButton.Location = new System.Drawing.Point(113, 160);
+            this.newUserButton.Name = "newUserButton";
+            this.newUserButton.Size = new System.Drawing.Size(75, 23);
+            this.newUserButton.TabIndex = 9;
+            this.newUserButton.Text = "button1";
+            this.newUserButton.UseVisualStyleBackColor = true;
+            // 
             // GetServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.newUserButton);
+            this.Controls.Add(this.wrongAddressLabel);
+            this.Controls.Add(this.failLabel);
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.sendButton);
@@ -122,6 +159,7 @@
             this.Name = "GetServer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GetServer";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GetServer_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +174,8 @@
         private System.Windows.Forms.Button sendButton;
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.Label failLabel;
+        private System.Windows.Forms.Label wrongAddressLabel;
+        private System.Windows.Forms.Button newUserButton;
     }
 }
