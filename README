@@ -1,3 +1,6 @@
 This will eventually turn into a downloader, installer, and updater for files, programs, etc.
 
+Logging in works, if you manually add someone to the user_db file.
+With some code it can download files. Other than that, still useless.
+
 Runs on port 28369.
