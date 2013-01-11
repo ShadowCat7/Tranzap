@@ -1,0 +1,10 @@
+C:\Users\Attridge\Programs\Tranzap\Client\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Attridge\Programs\Tranzap\Client\obj\x86\Debug\Tranzap.Form1.resources
+C:\Users\Attridge\Programs\Tranzap\Client\obj\x86\Debug\Tranzap.Properties.Resources.resources
+C:\Users\Attridge\Programs\Tranzap\Client\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Attridge\Programs\Tranzap\Client\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Attridge\Programs\Tranzap\Client\bin\Debug\Tranzap.exe
+C:\Users\Attridge\Programs\Tranzap\Client\bin\Debug\Tranzap.pdb
+C:\Users\Attridge\Programs\Tranzap\Client\obj\x86\Debug\Tranzap.exe
+C:\Users\Attridge\Programs\Tranzap\Client\obj\x86\Debug\Tranzap.pdb
+C:\Users\Attridge\Programs\Tranzap\Client\obj\x86\Debug\Tranzap.GetServer.resources

@@ -1,0 +1,10 @@
+C:\Users\Attridge\Programs\Tranzap\Server\TranzapServer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Attridge\Programs\Tranzap\Server\TranzapServer\bin\Debug\TranzapServer.exe
+C:\Users\Attridge\Programs\Tranzap\Server\TranzapServer\bin\Debug\TranzapServer.pdb
+C:\Users\Attridge\Programs\Tranzap\Server\TranzapServer\obj\x86\Debug\TranzapServer.exe
+C:\Users\Attridge\Programs\Tranzap\Server\TranzapServer\obj\x86\Debug\TranzapServer.pdb
+C:\Users\Attridge\Programs\Tranzap\Server\obj\x86\Debug\TranzapServer.exe
+C:\Users\Attridge\Programs\Tranzap\Server\obj\x86\Debug\TranzapServer.pdb
+C:\Users\Attridge\Programs\Tranzap\Server\bin\Debug\TranzapServer.exe
+C:\Users\Attridge\Programs\Tranzap\Server\bin\Debug\TranzapServer.pdb
+C:\Users\Attridge\Programs\Tranzap\Server\obj\x86\Debug\ResolveAssemblyReference.cache
