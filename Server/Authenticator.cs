@@ -13,6 +13,7 @@ namespace TranzapServer
         /// Reads from the user database file.
         /// </summary>
         private static StreamReader reader;
+        private static StreamWriter writer;
 
         /// <summary>
         /// Validates user info.
@@ -32,7 +33,7 @@ namespace TranzapServer
                         reader = new StreamReader("user_db");
                         while (!reader.EndOfStream)
                         {
-                            if (reader.ReadLine() == name && reader.ReadLine() == password)
+                            if (reader.ReadLine() == name.ToLower() && reader.ReadLine() == password.ToLower())
                             { return true; }
                         }
                         reader.Close();
@@ -44,6 +45,20 @@ namespace TranzapServer
                 catch (IOException) { }
             }
             return false;
+        }
+        public static bool addUser(string name, string password)
+        {
+            if (checkUser(name, password))
+            { return false; }
+            else
+            {
+                writer = new StreamWriter("user_db", true);
+                writer.WriteLine(name);
+                writer.WriteLine(password);
+                writer.Flush();
+                writer.Close();
+            }
+            return true;
         }
     }
 }

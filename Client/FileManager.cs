@@ -60,6 +60,7 @@ namespace Tranzap
                 reader = new StreamReader("downloads/" + fileName);
                 while (!reader.EndOfStream)
                 { fileContents.Add(reader.ReadLine()); }
+                reader.Close();
                 return fileContents;
             }
         }
